@@ -51,8 +51,8 @@ router.put('/:idOpintojakso/:idOpiskelija', async (req, res) => {
             'UPDATE arviointi SET Arvosana = ?, Paivamaara = ? WHERE idOpintojakso = ? AND idOpiskelija = ?',
             [Arvosana, Paivamaara, req.params.idOpintojakso, req.params.idOpiskelija]
         );
-        if (result.affectedRows === 0) return res.status(404).json({ error: "Arviointia ei löydy" });
-        res.json({ message: "Arviointi päivitetty onnistuneesti" });
+        if (result.affectedRows === 0) return res.status(404).json({ error: "Arviointia ei loydy" });
+        res.json({ message: "Arviointi paivitetty onnistuneesti" });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -65,7 +65,7 @@ router.delete('/:idOpintojakso/:idOpiskelija', async (req, res) => {
             'DELETE FROM arviointi WHERE idOpintojakso = ? AND idOpiskelija = ?',
             [req.params.idOpintojakso, req.params.idOpiskelija]
         );
-        if (result.affectedRows === 0) return res.status(404).json({ error: "Arviointia ei löydy" });
+        if (result.affectedRows === 0) return res.status(404).json({ error: "Arviointia ei loydy" });
         res.json({ message: "Arviointi poistettu onnistuneesti" });
     } catch (error) {
         res.status(500).json({ error: error.message });

@@ -45,8 +45,8 @@ router.put('/:id', async (req, res) => {
             'UPDATE opintojakso SET Koodi = ?, Laajuus = ?, Nimi = ? WHERE idOpintojakso = ?',
             [Koodi, Laajuus, Nimi, req.params.id]
         );
-        if (result.affectedRows === 0) return res.status(404).json({ error: "Opintojaksoa ei löydy" });
-        res.json({ message: "Opintojakso päivitetty onnistuneesti" });
+        if (result.affectedRows === 0) return res.status(404).json({ error: "Opintojaksoa ei loydy" });
+        res.json({ message: "Opintojakso paivitetty onnistuneesti" });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -56,7 +56,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     try {
         const [result] = await pool.query('DELETE FROM opintojakso WHERE idOpintojakso = ?', [req.params.id]);
-        if (result.affectedRows === 0) return res.status(404).json({ error: "Opintojaksoa ei löydy" });
+        if (result.affectedRows === 0) return res.status(404).json({ error: "Opintojaksoa ei loydy" });
         res.json({ message: "Opintojakso poistettu onnistuneesti" });
     } catch (error) {
         res.status(500).json({ error: error.message });
